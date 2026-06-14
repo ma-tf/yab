@@ -1,4 +1,5 @@
 ---
+import { BASE_PATH } from "../config";
 import BaseLayout from "./BaseLayout.astro";
 
 const { frontmatter } = Astro.props;
@@ -33,7 +34,7 @@ const { frontmatter } = Astro.props;
 		{
 			frontmatter.tags.map((tag: string) => (
 				<p class="tag">
-					<a href={`/tags/${tag}`}>{tag}</a>
+					<a href={`${BASE_PATH}tags/${tag}`}>{tag}</a>
 				</p>
 			))
 		}

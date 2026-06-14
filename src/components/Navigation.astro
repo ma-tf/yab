@@ -1,10 +1,10 @@
 ---
-
+import { BASE_PATH } from "../config";
 ---
 
 <div id="main-menu" class="nav-links">
-	<a href="/">Home</a>
-	<a href="/about/">About</a>
-	<a href="/blog/">Blog</a>
-	<a href="/tags/">Tags</a>
+	<a href={`${BASE_PATH}`}>Home</a>
+	<a href={`${BASE_PATH}about/`}>About</a>
+	<a href={`${BASE_PATH}blog/`}>Blog</a>
+	<a href={`${BASE_PATH}tags/`}>Tags</a>
 </div>
