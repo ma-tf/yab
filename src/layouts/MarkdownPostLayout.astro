@@ -1,6 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import TagList from "../components/TagList.astro";
+import Prose from "../components/Prose.astro";
 
 const { frontmatter } = Astro.props;
 ---
@@ -10,13 +11,15 @@ const { frontmatter } = Astro.props;
 		<h2>{frontmatter.description}</h2>
 	</div>
 	<div class="mt-8">
-		<p class="">
+		<p>
 			<em
 				>Published on: {frontmatter.pubDate.toDateString()}
-				{frontmatter.updatedDate && (
-					<span> · Updated: {frontmatter.updatedDate.toDateString()}</span>
-				)}</em
-			>
+				{
+					frontmatter.updatedDate && (
+						<span> · Updated: {frontmatter.updatedDate.toDateString()}</span>
+					)
+				}
+			</em>
 		</p>
 		<TagList tags={frontmatter.tags} />
 	</div>
@@ -29,7 +32,7 @@ const { frontmatter } = Astro.props;
 			/>
 		)
 	}
-	<div class="mt-8 prose">
+	<Prose>
 		<slot />
-	</div>
+	</Prose>
 </BaseLayout>
