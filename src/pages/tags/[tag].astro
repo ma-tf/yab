@@ -2,31 +2,20 @@
 import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths } from "astro";
 import BlogPost from "../../components/BlogPost.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-
-interface MarkdownPost {
-	frontmatter: {
-		title: string;
-		pubDate: string;
-		description: string;
-		author: string;
-		image: { url: string; alt: string };
-		tags: string[];
-	};
-	url: string;
-}
+import { getCollection } from "astro:content";
 
 export const getStaticPaths = (async () => {
 	const allPosts = Object.values(
-		import.meta.glob("../posts/*.md", { eager: true }),
-	) as MarkdownPost[];
+		await getCollection("blog")
+	);
 
 	const uniqueTags = [
-		...new Set(allPosts.map((post) => post.frontmatter.tags).flat()),
+		...new Set(allPosts.map((post) => post.data.tags).flat()),
 	];
 
 	return uniqueTags.map((tag) => {
 		const filteredPosts = allPosts.filter((post) =>
-			post.frontmatter.tags.includes(tag),
+      post.data.tags.includes(tag)
 		);
 		return {
 			params: { tag },
@@ -44,9 +33,6 @@ const { posts } = Astro.props as Props;
 
 <BaseLayout pageTitle={tag}>
 	<p>Posts tagged with {tag}</p>
-	{
-		posts.map((post) => (
-			<BlogPost url={post.url} title={post.frontmatter.title} />
-		))
-	}
+{ posts.map((post) => <BlogPost url={`/posts/${post.id}/`} title={post.data.title} />) }
+ 
 </BaseLayout>
