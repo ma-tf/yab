@@ -1,9 +1,20 @@
 ---
 interface Props {
-	title: string;
+	data: {
+		pubDate: Date;
+		description: string;
+		tags: string[];
+		title: string;
+	}
 	url: string;
 }
-const { title, url } = Astro.props;
+const { data, url } = Astro.props;
+
 ---
 
-<li><a class="text-link hover:text-link-hover underline" href={url}>{title}</a></li>
+<a href={url} class="block group">
+	<article class="gap-2 flex-col flex">
+			<h2 class="text-xl font-semibold text-foreground group-hover:text-link transition-colors">{data.title}</h2>
+			<time class="text-sm">{data.pubDate.toDateString()}</time>
+	</article>
+</a>
