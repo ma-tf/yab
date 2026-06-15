@@ -13,7 +13,7 @@ export default function Greeting({ messages }: Props) {
     <div>
       <h3>{greeting}! Thank you for visiting!</h3>
       <button
-        class="border border-gray-400 rounded bg-white px-3 py-1 cursor-pointer hover:bg-gray-100"
+        class="border border-border rounded bg-surface px-3 py-1 cursor-pointer hover:bg-surface-hover"
         onClick={() => setGreeting(randomMessage())}
       >
         New Greeting
