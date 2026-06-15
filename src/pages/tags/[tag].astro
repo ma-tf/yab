@@ -5,8 +5,8 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
 
 export const getStaticPaths = (async () => {
-	const allPosts = Object.values(
-		await getCollection("blog")
+	const allPosts = (await getCollection("blog")).filter(
+		(post) => !post.data.draft,
 	);
 
 	const uniqueTags = [
