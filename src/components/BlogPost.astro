@@ -5,16 +5,19 @@ interface Props {
 		description: string;
 		tags: string[];
 		title: string;
-	}
+	};
 	url: string;
 }
 const { data, url } = Astro.props;
-
 ---
 
 <a href={url} class="block group">
-	<article class="gap-2 flex-col flex">
-			<h2 class="text-xl font-semibold text-foreground group-hover:text-link transition-colors">{data.title}</h2>
-			<time class="text-sm">{data.pubDate.toDateString()}</time>
+	<article class="gap-1 flex-col flex">
+		<h2
+			class="text-xl font-semibold text-foreground group-hover:text-link transition-colors"
+		>
+			{data.title}
+		</h2>
+		<time class="text-sm">{data.pubDate.toDateString()}</time>
 	</article>
 </a>

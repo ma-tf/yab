@@ -6,19 +6,18 @@ import { getCollection } from "astro:content";
 const allPosts = (await getCollection("blog")).filter(
 	(post) => !post.data.draft,
 );
-const pageTitle = "My Astro Learning Blog";
+const pageTitle = "Matt's blog";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<p>This is where I will post about my journey learning Astro.</p>
-	<div class="flex flex-col gap-4">
+	<div class="mt-8">
+		<p>Thoughts and feelings on various topics.</p>
+	</div>
+	<div class="flex flex-col gap-4 mt-8">
 		{
-			allPosts.sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()).map((post) => (
-				<BlogPost
-					url={`/posts/${post.id}/`}
-					data={post.data}
-				/>
-			))
+			allPosts
+				.sort((a, b) => b.id.localeCompare(a.id))
+				.map((post) => <BlogPost url={`/posts/${post.id}/`} data={post.data} />)
 		}
 	</div>
 </BaseLayout>
