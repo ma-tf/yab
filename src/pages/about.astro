@@ -15,7 +15,7 @@ const goal = 3;
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<h2>... and my new Astro site!</h2>
+	<h2 class="text-3xl font-bold mt-6 mb-2">... and my new Astro site!</h2>
 
 	<p>
 		I am working through Astro's introductory tutorial. This is the second page
@@ -27,22 +27,22 @@ const goal = 3;
 		back and see how my journey is going!
 	</p>
 	<p>Here are a few facts about me:</p>
-	<ul>
-		<li>My name is {identity.firstName}.</li>
-		<li>
+	<ul class="list-disc ml-6">
+		<li class="mb-1">My name is {identity.firstName}.</li>
+		<li class="mb-1">
 			I live in {identity.country} and I work as a {identity.occupation}.
 		</li>
 		{
 			identity.hobbies.length >= 2 && (
-				<li>
+				<li class="mb-1">
 					Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
 				</li>
 			)
 		}
 	</ul>
 	<p>My skills are:</p>
-	<ul>
-		{skills.map((skill) => <li>{skill}</li>)}
+	<ul class="list-disc ml-6">
+		{skills.map((skill) => <li class="mb-1">{skill}</li>)}
 	</ul>
 	{happy && <p>I am happy to be learning Astro!</p>}
 

@@ -2,17 +2,29 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import BlogPost from "../components/BlogPost.astro";
 
+interface MarkdownPost {
+	frontmatter: {
+		title: string;
+		pubDate: string;
+		description: string;
+		author: string;
+		image: { url: string; alt: string };
+		tags: string[];
+	};
+	url: string;
+}
+
 const allPosts = Object.values(
 	import.meta.glob("./posts/*.md", { eager: true }),
-);
+) as MarkdownPost[];
 const pageTitle = "My Astro Learning Blog";
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<p>This is where I will post about my journey learning Astro.</p>
-	<ul>
+	<ul class="list-disc ml-6">
 		{
-			allPosts.map((post: any) => (
+			allPosts.map((post) => (
 				<BlogPost title={post.frontmatter.title} url={post.url} />
 			))
 		}

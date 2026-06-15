@@ -1,7 +1,19 @@
 ---
-import { BASE_PATH } from "../config";
 import BaseLayout from "./BaseLayout.astro";
 import TagList from "../components/TagList.astro";
+
+interface Frontmatter {
+	title: string;
+	pubDate: string | Date;
+	description: string;
+	author: string;
+	image: { url: string; alt: string };
+	tags: string[];
+}
+
+interface Props {
+	frontmatter: Frontmatter;
+}
 
 const { frontmatter } = Astro.props;
 ---

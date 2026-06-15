@@ -1,4 +1,7 @@
 ---
+interface Props {
+	tags: string[];
+}
 const { tags } = Astro.props;
 import { BASE_PATH } from "../config";
 ---
@@ -7,7 +10,7 @@ import { BASE_PATH } from "../config";
 	{
 		tags.map((tag: string) => (
 			<p class="m-1 border border-dotted border-gray-400 rounded-lg px-4 py-2 text-lg bg-slate-50">
-				<a href={`${BASE_PATH}tags/${tag}`}>{tag}</a>
+				<a class="text-blue-600 hover:text-blue-800 underline" href={`${BASE_PATH}tags/${tag}`}>{tag}</a>
 			</p>
 		))
 	}

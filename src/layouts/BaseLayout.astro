@@ -3,6 +3,11 @@ import { BASE_PATH } from "../config";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import "../styles/global.css";
+
+interface Props {
+	pageTitle: string;
+}
+
 const { pageTitle } = Astro.props;
 ---
 
@@ -23,7 +28,7 @@ const { pageTitle } = Astro.props;
 		<slot />
 		<Footer />
 		<script>
-			import "../scripts/menu.js";
+			import "../scripts/menu.ts";
 		</script>
 	</body>
 </html>
