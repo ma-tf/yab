@@ -1,6 +1,7 @@
 ---
 import { BASE_PATH } from "../../config";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import TagList from "../../components/TagList.astro";
 const allPosts = Object.values(
 	import.meta.glob("../posts/*.md", { eager: true }),
 );
@@ -10,34 +11,6 @@ const tags = [
 const pageTitle = "Tag Index";
 ---
 
-<style>
-	a {
-		color: #00539f;
-	}
-
-	.tags {
-		display: flex;
-		flex-wrap: wrap;
-	}
-
-	.tag {
-		margin: 0.25em;
-		border: dotted 1px #a1a1a1;
-		border-radius: 0.5em;
-		padding: 0.5em 1em;
-		font-size: 1.15em;
-		background-color: #f8fcfd;
-	}
-</style>
-
 <BaseLayout pageTitle={pageTitle}>
-	<div class="tags">
-		{
-			tags.map((tag) => (
-				<p class="tag">
-					<a href={`${BASE_PATH}tags/${tag}`}>{tag}</a>
-				</p>
-			))
-		}
-	</div>
+	<TagList tags={tags} />
 </BaseLayout>

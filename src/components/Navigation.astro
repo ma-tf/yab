@@ -2,9 +2,24 @@
 import { BASE_PATH } from "../config";
 ---
 
-<div id="main-menu" class="nav-links">
-	<a href={`${BASE_PATH}`}>Home</a>
-	<a href={`${BASE_PATH}about/`}>About</a>
-	<a href={`${BASE_PATH}blog/`}>Blog</a>
-	<a href={`${BASE_PATH}tags/`}>Tags</a>
+<div
+	id="main-menu"
+	class="nav-links hidden w-full m-0 md:flex md:ml-20 md:static md:w-auto md:bg-transparent"
+>
+	<a
+		class="block text-center py-2.5 no-underline text-xl font-bold uppercase text-indigo-950 hover:bg-orange-300 md:inline-block md:py-3.75 md:px-5 dark:text-white dark:hover:text-indigo-950"
+		href={`${BASE_PATH}`}>Home</a
+	>
+	<a
+		class="block text-center py-2.5 no-underline text-xl font-bold uppercase text-indigo-950 hover:bg-orange-300 md:inline-block md:py-3.75 md:px-5 dark:text-white dark:hover:text-indigo-950"
+		href={`${BASE_PATH}about/`}>About</a
+	>
+	<a
+		class="block text-center py-2.5 no-underline text-xl font-bold uppercase text-indigo-950 hover:bg-orange-300 md:inline-block md:py-3.75 md:px-5 dark:text-white dark:hover:text-indigo-950"
+		href={`${BASE_PATH}blog/`}>Blog</a
+	>
+	<a
+		class="block text-center py-2.5 no-underline text-xl font-bold uppercase text-indigo-950 hover:bg-orange-300 md:inline-block md:py-3.75 md:px-5 dark:text-white dark:hover:text-indigo-950"
+		href={`${BASE_PATH}tags/`}>Tags</a
+	>
 </div>

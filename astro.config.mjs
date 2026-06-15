@@ -2,11 +2,15 @@
 import { defineConfig } from 'astro/config';
 
 import preact from "@astrojs/preact";
+import tailwindcss from "@tailwindcss/vite";
 import { BASE_PATH } from './src/config';
 
 // https://astro.build/config
 export default defineConfig({
   base: BASE_PATH,
   site: "https://example.com",
-  integrations: [preact()]
+  integrations: [preact()],
+  vite: {
+    plugins: [tailwindcss()],
+  },
 });
