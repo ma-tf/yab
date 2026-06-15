@@ -9,7 +9,11 @@
     "dev": "astro dev",
     "build": "astro check && astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
+    "fmt": "oxfmt",
+    "fmt:check": "oxfmt --check"
   },
   "dependencies": {
     "preact": "^10.29.2"
@@ -21,6 +25,8 @@
     "@astrojs/rss": "^4.0.18",
     "@tailwindcss/vite": "^4.3.1",
     "astro": "^6.4.7",
+    "oxfmt": "^0.55.0",
+    "oxlint": "^1.70.0",
     "tailwindcss": "^4.3.1",
     "typescript": "^6.0.3"
   }
