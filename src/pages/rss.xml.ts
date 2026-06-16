@@ -1,6 +1,7 @@
 import type { APIContext } from "astro";
 import rss from "@astrojs/rss";
 import { getCollection } from "astro:content";
+import { BASE_PATH } from "../config";
 
 export async function GET(context: APIContext) {
   const posts = (await getCollection("blog")).filter((post) => !post.data.draft);
@@ -12,7 +13,7 @@ export async function GET(context: APIContext) {
       title: post.data.title,
       pubDate: post.data.pubDate,
       description: post.data.description,
-      link: `/posts/${post.id}/`,
+      link: `${context.site}${BASE_PATH}posts/${post.id}/`,
     })),
     customData: `<language>en-gb</language>`,
   });

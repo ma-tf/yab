@@ -3,6 +3,7 @@ import type { InferGetStaticParamsType, InferGetStaticPropsType, GetStaticPaths 
 import BlogPost from "../../components/BlogPost.astro";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import { getCollection } from "astro:content";
+import { BASE_PATH } from "../../config";
 
 export const getStaticPaths = (async () => {
 	const allPosts = (await getCollection("blog")).filter(
@@ -33,6 +34,6 @@ const { posts } = Astro.props as Props;
 
 <BaseLayout pageTitle={tag}>
 	<p>Posts tagged with {tag}</p>
-{ posts.map((post) => <BlogPost url={`/posts/${post.id}/`} data={post.data} />) }
+{ posts.map((post) => <BlogPost url={`${BASE_PATH}posts/${post.id}/`} data={post.data} />) }
  
 </BaseLayout>
