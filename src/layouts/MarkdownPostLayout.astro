@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "./BaseLayout.astro";
 import TagList from "../components/TagList.astro";
 import Prose from "../components/Prose.astro";
@@ -10,6 +11,14 @@ const { frontmatter } = Astro.props;
 	<div class="mt-8">
 		<h2>{frontmatter.description}</h2>
 	</div>
+	{
+		frontmatter.image && (
+			<div class="mt-8 flex flex-col gap-2">
+				<Image src={frontmatter.image} alt={frontmatter.imageAlt ?? ""} />
+				<span class="text-sm ">{frontmatter.imageAlt}</span>
+			</div>
+		)
+	}
 	<div class="mt-8">
 		<p>
 			<em
@@ -23,15 +32,7 @@ const { frontmatter } = Astro.props;
 		</p>
 		<TagList tags={frontmatter.tags} />
 	</div>
-	{
-		frontmatter.image && (
-			<img
-				src={frontmatter.image.url}
-				width="300"
-				alt={frontmatter.image.alt}
-			/>
-		)
-	}
+
 	<Prose>
 		<slot />
 	</Prose>

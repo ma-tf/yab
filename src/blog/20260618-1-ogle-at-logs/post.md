@@ -1,5 +1,6 @@
 ---
 title: "Ogle at logs"
+slug: "20260618-1-ogle-at-logs"
 pubDate: 2026-06-18
 description: "A terminal dashboard for Docker Compose projects."
 author: "Matt F"

@@ -8,6 +8,7 @@ import { BASE_PATH } from "./src/config";
 export default defineConfig({
   base: BASE_PATH,
   site: "https://example.com",
+  trailingSlash: "never",
   integrations: [preact()],
   vite: {
     plugins: [tailwindcss()],

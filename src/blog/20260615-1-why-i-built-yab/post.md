@@ -1,5 +1,6 @@
 ---
 title: "Yet another blog"
+slug: "20260615-1-why-i-built-yab"
 pubDate: 2026-06-15
 description: "The story behind making this blog."
 author: "Matt F"

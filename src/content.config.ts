@@ -3,22 +3,20 @@ import { defineCollection } from "astro:content";
 import { z } from "astro/zod";
 
 const blog = defineCollection({
-  loader: glob({ pattern: "**/[^_]*.md", base: "./src/blog" }),
-  schema: z.object({
-    title: z.string(),
-    pubDate: z.date(),
-    description: z.string(),
-    author: z.string(),
-    image: z
-      .object({
-        url: z.string(),
-        alt: z.string(),
-      })
-      .optional(),
-    tags: z.array(z.string()),
-    updatedDate: z.date().optional(),
-    draft: z.boolean().default(false),
-  }),
+  loader: glob({ pattern: "**/post.md", base: "./src/blog" }),
+  schema: ({ image }) =>
+    z.object({
+      title: z.string(),
+      slug: z.string(),
+      pubDate: z.date(),
+      description: z.string(),
+      author: z.string(),
+      image: image().optional(),
+      imageAlt: z.string().optional(),
+      tags: z.array(z.string()),
+      updatedDate: z.date().optional(),
+      draft: z.boolean().default(false),
+    }),
 });
 
 export const collections = { blog };

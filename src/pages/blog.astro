@@ -18,7 +18,9 @@ const pageTitle = "Matt's blog";
 		{
 			allPosts
 				.sort((a, b) => b.id.localeCompare(a.id))
-				.map((post) => <BlogPost url={`${BASE_PATH}posts/${post.id}/`} data={post.data} />)
+				.map((post) => (
+					<BlogPost url={`${BASE_PATH}posts/${post.id}`} data={post.data} />
+				))
 		}
 	</div>
 </BaseLayout>
