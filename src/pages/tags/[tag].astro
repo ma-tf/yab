@@ -17,7 +17,7 @@ export const getStaticPaths = (async () => {
 	return uniqueTags.map((tag) => {
 		const filteredPosts = allPosts
 			.filter((post) => post.data.tags.includes(tag))
-			.sort((a, b) => b.id.localeCompare(a.id));
+			.sort((a, b) => b.data.slug.localeCompare(a.data.slug));
 		return {
 			params: { tag },
 			props: { posts: filteredPosts },
@@ -34,6 +34,6 @@ const { posts } = Astro.props as Props;
 
 <BaseLayout pageTitle={tag}>
 	<p>Posts tagged with {tag}</p>
-{ posts.map((post) => <BlogPost url={`${BASE_PATH}posts/${post.id}/`} data={post.data} />) }
+{ posts.map((post) => <BlogPost url={`${BASE_PATH}posts/${post.data.slug}`} data={post.data} />) }
  
 </BaseLayout>

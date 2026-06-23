@@ -17,9 +17,9 @@ const pageTitle = "Matt's blog";
 	<div class="flex flex-col gap-4 mt-8">
 		{
 			allPosts
-				.sort((a, b) => b.id.localeCompare(a.id))
+				.sort((a, b) => b.data.slug.localeCompare(a.data.slug))
 				.map((post) => (
-					<BlogPost url={`${BASE_PATH}posts/${post.id}`} data={post.data} />
+					<BlogPost url={`${BASE_PATH}posts/${post.data.slug}`} data={post.data} />
 				))
 		}
 	</div>

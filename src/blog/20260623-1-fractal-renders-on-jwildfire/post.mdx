@@ -9,6 +9,8 @@ imageAlt: "A fractal render of green lights and white snowflake shaped objects."
 tags: ["art", "tools"]
 ---
 
+import video from "./fractal-animation.mp4";
+
 Nowadays when you hear generative art, the mind goes to generative AI and the controvery around it - but it has not always been this way. JWildfire is a free, open-source fractal flame editor. Fractal flames are those organic, swirling images that look like a cross between a nebula and a bundle of flowers.
 
 You have probably seen them on wallpaper sites and assumed they took hours in Photoshop. They did not. Most were made in JWildfire.
@@ -21,11 +23,7 @@ Open the app, hit the random flame button, and something beautiful appears. You 
 
 Almost every parameter can be animated over time too.
 
-<!-- markdownlint-disable MD033 -->
-
-<video src="../videos/fractal-animation.mp4" autoplay controls loop></video>
-
-<!-- markdownlint-enable MD033 -->
+<video src={video} autoplay controls loop></video>
 
 If the interface is still overwhelming there is a dice roll button to generate images with random parameters, and there is always something that looks good that comes from it.
 
