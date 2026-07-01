@@ -109,8 +109,18 @@ The skip logic prevents circularity: if the current issue was _itself_ created b
 
 Sandcastle's `parallel-planner-with-review` template gave me a solid foundation. The real work was tailoring it to Ogle's specific needs: a custom Docker image with Go tooling, phase-specific model selection, detailed prompts encoding Go conventions, and the scrivener documentation audit phase.
 
-345 execution logs, 30+ branches, and countless `[RALPH]` commits later, the pipeline runs entirely AFK - set it up, walk away, come back to merged, reviewed, documented changes.
+Hundreds of execution logs, tens of branches, and countless `[RALPH]` commits later, the pipeline runs entirely AFK - set it up, walk away, come back to merged, reviewed, documented changes. Documentation being a particularly bothersome issue that I no longer need to worry about.
 
 The templates give you the skeleton. The prompts, the models, and the infrastructure decisions are what make it work for your project.
 
-But how was it? I found I only needed to intervene with matters of code quality 10-20% of the time. I find this acceptable. Given I can implement many bitesize github issues in parallel, fixing 1 in 10 misimplemented issues myself is still an increase in productivity. Having used GPT 5.4 as well as Sonnet 4.6 and Opus 4.6 - Deepseek v4 Flash is a sufficient model that costs pennies for features. But with a stronger model like GPT or Sonnet, I have no doubt the code quality issues would be reduced further. Overall, this is a great method to increase output without sacrificing code quality.
+### The data
+
+I introduced sandcastle to the project with commit `f398f5e` and v0.3.0 is the current release of ogle.
+
+| Category                    | Commits |
+| --------------------------- | ------- |
+| Sandcastle (marked [RALPH]) | 107     |
+| Merge                       | 67      |
+| Human                       | 82      |
+
+I find this acceptable. Given I can implement many bitesize github issues in parallel, fixing a few misimplemented issues myself is still an increase in productivity. Having used GPT 5.4 as well as Sonnet 4.6 and Opus 4.6 - Deepseek v4 Flash is a sufficient model that costs pennies for features. But with a stronger model like GPT or Sonnet, I have no doubt the code quality issues would be reduced further. Overall, this is a great method to increase output without sacrificing code quality.
